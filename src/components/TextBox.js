@@ -38,13 +38,18 @@ function TextBox(props) {
       backgroundColor: props.mode === 'dark' ? 'rgb(6 59 78)' : 'white'
   }
 
+  const textAreaStyle = {
+    color: props.mode === 'dark' ? 'white' : 'black',
+    backgroundColor: props.mode === 'dark' ? 'rgb(48 57 67)' : 'white'
+}
+
   return (
     <>
       <div className="container" style={modeStyle}>
         <h3 > {props.heading} </h3>
         <div className="mb-3"> 
         <textarea className="form-control" value={text} onChange={handleOnChange}
-         id="mytextarea" rows="8" style={modeStyle}> </textarea>
+         id="mytextarea" rows="8" style={textAreaStyle}> </textarea>
         </div>      
         <button className={`btn btn-${props.mode === 'dark' ? 'warning' : 'primary'} my-2 mx-2 ${text.length === 0 ? 'disabled' : 'enabled'}`} onClick={convertUpCase}>Convert to Uppercase</button>
         <button className={`btn btn-${props.mode === 'dark' ? 'warning' : 'primary'} my-2 mx-2 ${text.length === 0 ? 'disabled' : 'enabled'}`} onClick={convertLowerCase}>Convert to Lowercase</button>
